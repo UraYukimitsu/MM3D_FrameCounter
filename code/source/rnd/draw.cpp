@@ -26,13 +26,11 @@
  */
 
 #include "rnd/draw.h"
-#include "rnd/icons.h"
-#include "utils.h"
+#include "common/utils.h"
 
 #include <string.h>
 #include "fonts/ascii_font.h"
 #include "fonts/ascii_font_small.h"
-#include "rnd/custom_messages.h"
 
 extern "C" {
 #include <3ds/svc.h>
@@ -64,46 +62,6 @@ void Draw_Lock(void) {
 
 void Draw_Unlock(void) {
   RecursiveLock_Unlock(&lock);
-}
-
-void Draw_DrawIcon(u32 posX, u32 posY, u32 color, Draw_IconType icon) {
-  // Skip drawing entirely if we're off-screen
-  if (posX >= SCREEN_BOT_WIDTH) {
-    return;
-  }
-  if (posY >= SCREEN_BOT_HEIGHT) {
-    return;
-  }
-
-  u8 sizeX = ICON_WIDTH;
-  u8 sizeY = ICON_HEIGHT;
-
-  // Clamp size to screen bounds
-  if (posX + sizeX > SCREEN_BOT_WIDTH) {
-    sizeX = SCREEN_BOT_WIDTH - posX;
-  }
-  if (posY + sizeY > SCREEN_BOT_HEIGHT) {
-    sizeY = SCREEN_BOT_HEIGHT - posY;
-  }
-
-  const u8 sizeXMinusOne = ICON_WIDTH - 1;
-
-  const unsigned char* glyph = rIcons[icon];
-
-  for (s32 y = 0; y < sizeY; y++) {
-    const unsigned char glyphRow = glyph[y];
-    const u32 screenPosY = (posX * SCREEN_BOT_HEIGHT) + (SCREEN_BOT_HEIGHT - y - posY - 1);
-
-    for (s32 x = 0; x < sizeX; x++) {
-      const u32 shift = sizeXMinusOne - x;
-      const u32 screenPos = (screenPosY + x * SCREEN_BOT_HEIGHT) * 3;
-      const u32 pixelColor = ((glyphRow >> shift) & 1) ? color : COLOR_BLACK;
-
-      backBufferBtm[screenPos] = (pixelColor)&0xFF;
-      backBufferBtm[screenPos + 1] = (pixelColor >> 8) & 0xFF;
-      backBufferBtm[screenPos + 2] = (pixelColor >> 16) & 0xFF;
-    }
-  }
 }
 
 void Draw_DrawRect(u32 posX, u32 posY, u32 width, u32 height, u32 color) {
@@ -280,27 +238,27 @@ u32 Draw_DrawStringTop(u32 posX, u32 posY, u32 color, const char* string) {
   return posY;
 }
 
-u32 Draw_DrawFormattedString(u32 posX, u32 posY, u32 color, const char* fmt, ...) {
-  char buf[DRAW_MAX_FORMATTED_STRING_SIZE + 1];
-  va_list args;
-  va_start(args, fmt);
-  // vsprintf(buf, fmt, args);
-  vsnprintf_(buf, DRAW_MAX_FORMATTED_STRING_SIZE, fmt, args);
-  va_end(args);
+// u32 Draw_DrawFormattedString(u32 posX, u32 posY, u32 color, const char* fmt, ...) {
+//   char buf[DRAW_MAX_FORMATTED_STRING_SIZE + 1];
+//   va_list args;
+//   va_start(args, fmt);
+//   // vsprintf(buf, fmt, args);
+//   vsnprintf_(buf, DRAW_MAX_FORMATTED_STRING_SIZE, fmt, args);
+//   va_end(args);
 
-  return Draw_DrawString(posX, posY, color, buf);
-}
+//   return Draw_DrawString(posX, posY, color, buf);
+// }
 
-u32 Draw_DrawFormattedString_Small(u32 posX, u32 posY, u32 color, const char* fmt, ...) {
-  char buf[DRAW_MAX_FORMATTED_STRING_SIZE + 1];
-  va_list args;
-  va_start(args, fmt);
-  // vsprintf(buf, fmt, args);
-  vsnprintf_(buf, DRAW_MAX_FORMATTED_STRING_SIZE, fmt, args);
-  va_end(args);
+// u32 Draw_DrawFormattedString_Small(u32 posX, u32 posY, u32 color, const char* fmt, ...) {
+//   char buf[DRAW_MAX_FORMATTED_STRING_SIZE + 1];
+//   va_list args;
+//   va_start(args, fmt);
+//   // vsprintf(buf, fmt, args);
+//   vsnprintf_(buf, DRAW_MAX_FORMATTED_STRING_SIZE, fmt, args);
+//   va_end(args);
 
-  return Draw_DrawString_Small(posX, posY, color, buf);
-}
+//   return Draw_DrawString_Small(posX, posY, color, buf);
+// }
 
 u32 Draw_DrawFormattedStringTop(u32 posX, u32 posY, u32 color, const char* fmt, ...) {
   char buf[DRAW_MAX_FORMATTED_STRING_SIZE + 1];

@@ -28,6 +28,7 @@
 extern "C" {
 #include <3ds/gfx.h>
 #include <3ds/types.h>
+#include "common/printf.h"
 }
 
 #define FB_BOTTOM_VRAM_ADDR ((void*)0x1F48F000)  // cached

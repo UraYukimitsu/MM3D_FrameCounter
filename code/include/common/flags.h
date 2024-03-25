@@ -15,7 +15,6 @@
 #include <numeric>
 #include <type_traits>
 
-#include "common/debug.h"
 #include "z3d/z3DVec.h"
 
 namespace rnd {

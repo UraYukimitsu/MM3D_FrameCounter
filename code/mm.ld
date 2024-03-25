@@ -53,10 +53,6 @@ SECTIONS{
     *(.patch_RemoveSOHCutesceneAfterMessage)
   }
 
-  .patch_OverrideBombersNotebook 0x186ACC : {
-    *(.patch_OverrideBombersNotebook)
-  }
-
   /*2bec9c GOOD DREAM */
   /*  
   .patch_RemoveMeetMaskCutScene 0x2bec9c : {
@@ -75,20 +71,8 @@ SECTIONS{
     *(.patch_SwapTradeItemFromExtSlot)
   }
 
-  .patch_OverrideCutsceneNextEntrance 0x1B1834 : {
-    *(.patch_OverrideCutsceneNextEntrance)
-  }
-
   .patch_RemoveMysteryMilkTimer 0x1B7A54 : {
     *(.patch_RemoveMysteryMilkTimer)
-  }
-
-  .patch_GetCustomText 0x1BDE78 : {
-    *(.patch_GetCustomText)
-  }
-
-  .patch_DoNotResetTempleFlags 0x1C936C : {
-    *(.patch_DoNotResetTempleFlags)
   }
 
   .patch_DoNotResetPermFlags 0x1C9348 : {
@@ -139,16 +123,8 @@ SECTIONS{
     *(.patch_RemoveMysteryMilkUsabilityCheck)
   }
 
-  .patch_OcarinaDive 0x1E1F0C : {
-    *(.patch_OcarinaDive)
-  }
-
   .patch_ByPassMaskEquipmentChecks 0x1E770C : {
     *(.patch_ByPassMaskEquipmentChecks)
-  }
-
-  .patch_SpawnFastElegyStatues 0x1E9FB8 : {
-    *(.patch_SpawnFastElegyStatues)
   }
 
   .patch_FastTransformCutsceneSkipBtns 0x1EB660 : {
@@ -195,10 +171,6 @@ SECTIONS{
     *(.patch_CheckMagicForZoraFastSwim)
   }
 
-  .patch_BlastMaskCooldown 0x2047FC : {
-    *(.patch_BlastMaskCooldown)
-  }
-
   .patch_ZoraBarrierCheckMagicAcquired 0x207230 : {
     *(.patch_ZoraBarrierCheckMagicAcquired)
   }
@@ -235,24 +207,12 @@ SECTIONS{
     *(.patch_ForceSwordUpgradeOnHuman)
   }
 
-  .patch_CheckDungeonItems 0x233F30 : {
-    *(.patch_CheckDungeonItems)
-  }
-
-  .patch_CheckDungeonSmallKeys 0x233F4C : {
-    *(.patch_CheckDungeonSmallKeys)
-  }
-
 	.patch_DisableMilkTimer 0x234BFC : {
 		*(.patch_DisableMilkTimer)
 	}
 
   .patch_RemoveRSHealthThree 0x235800 : {
     *(.patch_RemoveRazordSwordHealthThree)
-  }
-
-  .patch_RemoveRemainsStateCheck 0x22B7BC : {
-    *(.patch_RemoveRemainsStateCheck)
   }
 
   .patch_ChangeDrawItemIndex 0x22F24C : {
@@ -269,10 +229,6 @@ SECTIONS{
 
   .patch_OverrideItemID 0x231108 : {
     *(.patch_OverrideItemID)
-  }
-
-  .patch_EnteringLocation 0x23AA54 : {
-    *(.patch_EnteringLocation)
   }
 
   .patch_TwinmoldConsistentDamage 0x28E544 : {
@@ -355,30 +311,6 @@ SECTIONS{
     *(.patch_IceArrowsAnywhere)
   }
 
-  .patch_changeChestTypeToMatchContents 0x31CE0C : {
-    *(.patch_changeChestTypeToMatchContents)
-  }
-
-  .patch_AdjustMapAndCompassChests 0x31CE9C : {
-    *(.patch_AdjustMapAndCompassChests)
-  }
-
-  .patch_RemoveSongCheckKaepora 0x326ED0 : {
-    *(.patch_RemoveSongCheckKaepora)
-  }
-
-  .patch_RemoveZoraMaskCheckMikau 0x32BBB8 : {
-    *(.patch_RemoveZoraMaskCheckMikau)
-  }
-
-  .patch_AromaItemCheck 0x35091C : {
-    *(.patch_AromaItemCheck)
-  }
-
-  .patch_CheckMoTRequirement 0x35C428 : {
-    *(.patch_CheckMoTRequirement)
-  }
-
   .patch_TradeItemDeleteMoonsTear 0x3B5214 : {
     *(.patch_TradeItemDeleteMoonsTear)
   }
@@ -415,10 +347,6 @@ SECTIONS{
     *(.patch_OverrideProgessiveWalletTwo)
   }
 
-  .patch_CheckMasksOnMoon 0x46AA48 : {
-    *(.patch_CheckMasksOnMoonOne)
-  }
-
   .patch_CouplesMaskGiveItem 0x46E228 : {
     *(.patch_CouplesMaskGiveItem)
   }
@@ -449,10 +377,6 @@ SECTIONS{
 
   .patch_RemoveJimWhenExitingHideout 0x4B6964 : {
     *(.patch_RemoveJimWhenExitingHideout)
-  }
-
-  .patch_ReadGamePad 0x59BA10 : {
-    *(.patch_ReadGamePad)
   }
 
   .patch_DisableExistingTrigger 0x59BA14 : {
@@ -498,10 +422,6 @@ SECTIONS{
 
   .patch_ItemCloseOnSelect 0x5C19E4 : {
     *(.patch_ItemCloseOnSelect)
-  }
-
-  .patch_HandleOcarinaHooks 0x604D8C : {
-    *(.patch_HandleOcarinaHooks)
   }
 
   . = 0x61CD8C;
